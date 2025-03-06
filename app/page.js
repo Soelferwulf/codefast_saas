@@ -7,7 +7,7 @@ export default function Home() {
   const isLoggedIn = true;
   const name = "Jiri";
 
-  const princingFeaturesList = [
+  const pricingFeaturesList = [
     "Collect customer feedback",
     "Unlimited boards",
     "Admin dashboard",
@@ -73,7 +73,7 @@ export default function Home() {
             </div>
 
             <ul className="space-y-2">
-              {princingFeaturesList.map((priceItem) => {
+              {pricingFeaturesList.map((priceItem) => {
                 return (
                   <li className="flex gap-2 items-center" key={priceItem}>
                     <svg
