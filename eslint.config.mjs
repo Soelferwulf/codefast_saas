@@ -2,22 +2,7 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
 
-import { FlatCompat } from "@eslint/eslintrc";
-const compat = new FlatCompat({
-  // import.meta.dirname is available after Node.js v20.11.0
-  baseDirectory: import.meta.dirname,
-});
-const eslintConfig = [
-  ...compat.config({
-    extends: ["next"],
-    rules: {
-      "react/no-unescaped-entities": "off",
-      "@next/next/no-page-custom-font": "off",
-    },
-  }),
-];
-
-/** @type {import('eslint').Linter.Config[]} */
+/** @type {import('eslint').Linter.Config["react/react-in-jsx-scope": "off", "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]]} */
 export default [
   { files: ["**/*.{js,mjs,cjs,jsx}"] },
   { languageOptions: { globals: globals.browser } },
