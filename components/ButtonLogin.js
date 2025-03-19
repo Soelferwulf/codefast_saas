@@ -1,4 +1,4 @@
-import { formatDynamicAPIAccesses } from "next/dist/server/app-render/dynamic-rendering";
+// import { formatDynamicAPIAccesses } from "next/dist/server/app-render/dynamic-rendering";
 import Link from "next/link";
 
 const ButtonLogin = ({ isLoggedIn, name, extraStyle }) => {
