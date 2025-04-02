@@ -1,8 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const FormNewBoard = () => {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,21 +19,30 @@ const FormNewBoard = () => {
 
     try {
       // 1. Asynchronous call to API to create new board
-      const response = await fetch("/api/board", {
-        method: "POST",
-        body: JSON.stringify({
-          name,
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
-      const data = await response.json();
 
-      console.log(data);
+      //   VANILLA
+      //   const response = await fetch("/api/board", {
+      //     method: "POST",
+      //     body: JSON.stringify({
+      //       name,
+      //     }),
+      //     headers: { "Content-Type": "application/json" },
+      //   });
+      //   const data = await response.json();
+
+      // or with AXIOS
+      const data = await axios.post("/api/board", { name });
 
       setName("");
+
+      toast.success("Board created!");
+
+      router.refresh();
+
       // 2. Redirect to dedicated board page
     } catch (error) {
       // 1. Display error message
+      toast.error("Something went wrong");
       // 2. Stop loading spinner
     } finally {
       setIsLoading(false);
