@@ -42,7 +42,9 @@ const FormNewBoard = () => {
       // 2. Redirect to dedicated board page
     } catch (error) {
       // 1. Display error message
-      toast.error("Something went wrong");
+      const errorMessage =
+        error.response?.data?.error || error.message || "Something went wrong";
+      toast.error(errorMessage);
       // 2. Stop loading spinner
     } finally {
       setIsLoading(false);
