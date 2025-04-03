@@ -14,6 +14,7 @@ export default [
       "react/react-in-jsx-scope": "off",
       "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
       "react/prop-types": "off",
+      "no-unused-vars": "warn",
     },
   },
 ];
